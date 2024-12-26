@@ -1,0 +1,146 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    overflow: hidden;
+    position: relative;
+}
+
+.background-lines {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Semi-transparent background for visibility */
+    overflow: hidden; /* Prevent overflow */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.line {
+    position: absolute;
+    width: 2px; /* Width of the lines */
+    height: 100%; /* Full height of the container */
+    background-color: rgba(255, 255, 255, 0.5); /* Line color */
+    animation: moveUp 5s linear infinite; /* Animation for moving up */
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(100%); /* Start from below the viewport */
+    }
+    100% {
+        transform: translateY(-100%); /* Move to above the viewport */
+    }
+}
+
+/* Create multiple lines */
+.line:nth-child(1) { left: 10%; animation-duration: 4s; }
+.plus:nth-child(2) { left: 20%; animation-duration: 5s; }
+.line:nth-child(3) { left: 30%; animation-duration: 6s; }
+.plus:nth-child(4) { left: 40%; animation-duration: 4.5s; }
+.line:nth-child(5) { left: 50%; animation-duration: 5.5s; }
+.plus:nth-child(6) { left: 60%; animation-duration: 5s; }
+.line:nth-child(7) { left: 70%; animation-duration: 6s; }
+.plus:nth-child(8) { left: 80%; animation-duration: 4s; }
+.line:nth-child(9) { left: 90%; animation-duration: 5.5s; }
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+.role-btn {
+    display: block;
+    padding: 15px;
+    margin: 20px auto;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    color: white;
+    background-color: #4CAF50;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.role-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.5s;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.role-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.role-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.role-btn:active {
+    transform: translateY(2px);
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .role-btn {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .role-btn {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}

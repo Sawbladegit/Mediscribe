@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediscribe - Doctor</title>
+
+    <!-- Update WebSocket URL to the cloud server -->
+    <script src="https://your-cloud-server.com/socket.io/socket.io.js"></script> <!-- Modify to cloud URL -->
+    <script src="webrtc_setup.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Doctor_styles.css">
+</head>
+
+<body>
+    <div class="header">
+        <h3>Hello Doctor!</h3>
+    </div>
+
+    <div class="video-container">
+        <video id="localVideo" autoplay playsinline></video>
+        <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+
+    <div class="controls">
+        <button id="startCallButton" onclick="startCall()">Start Call</button>
+        <button id="endCallButtonDoctor" onclick="endCall()">End Call</button> <!-- Added the endCall function -->
+    </div>
+
+    <script>
+        // Add WebRTC and signaling logic here
+        function endCall() {
+            // Logic to end the WebRTC call and stop the stream
+            console.log("Ending call...");
+            // Your WebRTC termination logic here
+        }
+    </script>
+</body>
+
+</html>

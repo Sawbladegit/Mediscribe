@@ -1,0 +1,102 @@
+/* Global Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom right, #e0e7ff, #f7fafc);
+    height: 100vh;
+    color: #333;    
+}
+
+/* Header Styles */
+.header {
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 40px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-top: 20px;
+}
+
+/* Video Container Styles */
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#localVideo, #remoteVideo {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Common Modal Overlay Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content Styles */
+.modal-content {
+    background-color: white;
+    padding: 40px; /* Increased padding for a larger look */
+    border-radius: 10px; /* Smooth corners */
+    width: 80%; /* Set width to 80% of the screen width */
+    max-width: 800px; /* Max width of 800px */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for visibility */
+    text-align: center;
+}
+
+/* View Prescription Button Styling */
+#view-prescription-modal .modal-content button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#view-prescription-modal .modal-content button:hover {
+    background-color: #45a049;
+}
+
+/* Prescription Modal Content Styles */
+#prescription-modal .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#prescription-modal .modal-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+#prescription-modal .modal-content button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#prescription-modal .modal-content button:hover {
+    background-color: #e53935;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Role User!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Main_styles.css">
+</head>
+
+<body>
+    <div class="background-lines"></div>
+
+    <div class="container">
+        <img src="Resources/Mediscribe_Logo.png" alt="Mediscribe Logo" class="logo">
+        <h1>Select Your Role User!</h1>
+        <button class="role-btn" id="doctorBtn">Doctor</button>
+        <button class="role-btn" id="patientBtn">Patient</button>
+    </div>
+
+    <script>
+        const backgroundLines = document.querySelector('.background-lines');
+
+        for (let i = 0; i < 10; i++) {
+            const line = document.createElement('div');
+            line.classList.add('line');
+            backgroundLines.appendChild(line);
+        }
+
+        // Dynamically set the session ID (replace with dynamic value from backend)
+        document.getElementById('doctorBtn').addEventListener('click', function() {
+            sessionStorage.setItem('session_id', generateSessionID()); // Dynamically generate session ID
+            window.location.href = 'Doctor.html';
+        });
+
+        document.getElementById('patientBtn').addEventListener('click', function() {
+            sessionStorage.setItem('session_id', generateSessionID()); // Dynamically generate session ID
+            window.location.href = 'Patient.html';
+        });
+
+        function generateSessionID() {
+            // Example function to generate a dynamic session ID (could be replaced with backend logic)
+            return Math.floor(Math.random() * 10000);
+        }
+    </script>
+</body>
+
+</html>

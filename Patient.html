@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediscribe - Patient</title>
+
+    <!-- Update WebSocket URL to the cloud server -->
+    <script src="https://your-cloud-server.com/socket.io/socket.io.js"></script> <!-- Modify to cloud URL -->
+    <script src="Signalwebrtcint.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Patient_styles.css">
+</head>
+
+<body>
+    <div class="header">
+        <h3>Hello Patient</h3>
+    </div>
+
+    <div class="video-container">
+        <video id="localVideo" autoplay playsinline></video>
+        <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+
+    <!-- Pre-modal for View Prescription Button -->
+    <div id="view-prescription-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button onclick="viewPrescription()">View Prescription</button>
+        </div>
+    </div>
+
+    <!-- Modal for End Call and Prescription -->
+    <div id="prescription-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Here's Your Prescription</h2>
+            <p id="prescriptionText">Your prescription will be displayed here.</p>
+            <button onclick="closeEndCallModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to close the modal
+        function closeEndCallModal() {
+            document.getElementById('prescription-modal').style.display = 'none';
+        }
+
+        // Function to show the prescription modal
+        function viewPrescription() {
+            document.getElementById('view-prescription-modal').style.display = 'none';
+            document.getElementById('prescription-modal').style.display = 'flex';
+        }
+
+        // Handle server event when the call is ended
+        socket.on('endCall', (data) => {
+            document.getElementById("prescription-modal").style.display = "flex";
+            document.getElementById("prescriptionText").innerText = data.prescription;
+        });
+    </script>
+
+</body>
+
+</html>
